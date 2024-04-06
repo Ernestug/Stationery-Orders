@@ -61,7 +61,7 @@ By leveraging PostgreSQL for data Exploratory Data Analysis (EDA) and Power BI f
 
 ## Report
 ### Database Creation
-Because the data is large and expected to grow, I made a database for the store using PostgreSQL. The database has two tables: order_details and items (see Data Overview section for more about the tables). Constraints were added when creating these tables. In SQL, constraints help keep data accurate and consistent in a database. Here are some of the constraints used in making the E_Stationery_Store database:
+Because the data is large and expected to grow, I made a database for the store using PostgreSQL. The database has two tables: order_details and items [see Data Overview section for more about the tables](https://github.com/Ernestug/Staionery-Orders/blob/main/README.md#data-overview). Constraints were added when creating these tables. In SQL, constraints help keep data accurate and consistent in a database. Here are some of the constraints used in making the E_Stationery_Store database:
 
 - **SERIAL:** It’s a data type, which automatically generates unique integer values for new rows. That is whenever you want to insert new values in to the order_details table, the order_details_id automatically generates a new id.
 - **DEFAULT:** The DEFAULT constraint specifies a default value for the column when no explicit value is provided during insertion
