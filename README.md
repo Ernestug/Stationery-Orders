@@ -1,6 +1,3 @@
-Ernest's Paper Co. seeks to enhance its understanding of customer preferences, improve inventory management practices, and optimize sales strategies to better meet the needs of its target audience.
-
-
 # Stationery-Orders
 ## This project focuses on analyzing sales data from an online store that specializes in selling stationery items in Germany. The data used for this analysis was adapted from [Maven Analytics Playground](https://mavenanalytics.io/data-playground?search=resta), with modifications made to tailor it specifically to the stationery sales domain.
 
