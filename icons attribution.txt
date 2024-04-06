@@ -1,0 +1,6 @@
+orders: <a href="https://www.flaticon.com/free-icons/person" title="person icons">Person icons created by Freepik - Flaticon</a>
+ordered: <a href="https://www.flaticon.com/free-icons/box" title="box icons">Box icons created by Smashicons - Flaticon</a>
+Revenue: <a href="https://www.flaticon.com/free-icons/euro" title="euro icons">Euro icons created by Freepik - Flaticon</a>
+inventory value:<a href="https://www.flaticon.com/free-icons/euro" title="euro icons">Euro icons created by Kiranshastry - Flaticon</a>
+date: <a href="https://www.flaticon.com/free-icons/calendar" title="calendar icons">Calendar icons created by pojok d - Flaticon</a>
+store: <a href="https://www.flaticon.com/free-icons/stationery" title="stationery icons">Stationery icons created by itim2101 - Flaticon</a>

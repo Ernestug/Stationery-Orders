@@ -1,0 +1,34 @@
+﻿Item_ID,Item,Category,Price (€),Inventory
+101,Pencil,Writing,0.99,252
+102,Pen,Writing,1.49,355
+103,Eraser,Writing,0.49,2000
+104,Ruler,Measuring,1.99,393
+105,Notebook,Paper,2.99,689
+106,Binder,Organization,4.99,463
+107,Highlighter,Writing,1.99,1519
+108,Marker,Writing,2.49,410
+109,Stapler,Office Supplies,3.99,324
+110,Sticky Notes,Organization,1.99,229
+111,Index Cards,Paper,1.49,366
+112,Correction Tape,Correction,2.99,73
+113,Scissors,Cutting,3.49,234
+114,Tape,Adhesive,0.99,294
+115,Glue Stick,Adhesive,1.29,322
+116,Paper Clips,Organization,0.79,277
+117,Push Pins,Organization,0.99,351
+118,Sharpener,Writing,0.99,709
+119,Desk Organizer,Organization,9.99,542
+120,File Folder,Organization,1.99,80
+121,Calculator,Calculating,9.99,308
+122,Desk Calendar,Organization,4.99,138
+123,Wall Calendar,Organization,7.99,700
+124,Whiteboard,Writing,19.99,614
+125,Dry Erase Marker,Writing,1.49,100
+126,Binder Clips,Organization,1.29,280
+127,Rubber Bands,Organization,0.79,400
+128,Hole Puncher,Organization,2.99,429
+129,Clipboard,Organization,3.99,347
+130,Post-it Flags,Organization,1.49,670
+131,Notebook Paper,Paper,3.99,664
+132,Graph Paper,Paper,2.99,21
+133,Construction Paper,Paper,4.99,2384

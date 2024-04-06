@@ -1,0 +1,147 @@
+MEASURES
+
+1. Ordered = SUM('public order_details'[quantity])
+
+2. Revenue = 
+SUMX(
+    'public order_details',
+    RELATED('public items'[price_in_€]) *'public order_details'[quantity]
+)
+
+3. Orders = DISTINCTCOUNT('public order_details'[order_id])
+
+4. YTD = TOTALYTD([Revenue],CalenderDim[Date])
+
+5. AOQ = [Ordered]/[Orders]
+6. Inventory = SUM('public items'[inventory])
+
+7. Inventory Value = 
+
+SUMX(
+    'public items',
+    'public items'[price_in_€]*'public items'[inventory]
+)
+
+8. MostRecent Order Rev = 
+var _date = MAX('public order_details'[order_date])
+
+return
+CALCULATE(
+    [Revenue],
+    'public order_details'[order_date] = _date)
+
+9. MostRecent Ordered = 
+var _date = MAX('public order_details'[order_date])
+
+return
+CALCULATE(
+    [Ordered],
+    'public order_details'[order_date] = _date)
+
+10. Very Low Stock = 
+
+VAR very_low_stock =
+    CALCULATE(
+        DISTINCTCOUNT('inventory level'[public items_item_id]),
+        'inventory level'[availability_status] = "Very Low Stock"
+    )
+
+VAR all_items =
+    DISTINCTCOUNT('inventory level'[public items_item_id])
+
+RETURN
+DIVIDE(
+    very_low_stock,
+    all_items
+)
+
+11. Status = 
+IF([Very Low Stock]>0, "Restock  ", "None")
+
+12. Ordered Var = DIVIDE([CM Ordered]-[PM Ordered], [PM Order])
+
+13. Rev Var = DIVIDE(([CM Rev]-[PM Rev]),[PM Rev])
+
+14. PM Order = 
+var current_month =MONTH(MAX('public order_details'[order_date]))
+var previous_month = IF(current_month = 1, 12, current_month-1)
+var current_year = YEAR(MAX('public order_details'[order_date]))
+var previous_year = IF(current_month=1, current_year-1, current_year)
+
+return
+CALCULATE([Orders],
+    YEAR('public order_details'[order_date]) = previous_year,
+    MONTH('public order_details'[order_date]) = previous_month)
+
+15. PM Ordered = 
+var current_month =MONTH(MAX('public order_details'[order_date]))
+var previous_month = IF(current_month = 1, 12, current_month-1)
+var current_year = YEAR(MAX('public order_details'[order_date]))
+var previous_year = IF(current_month=1, current_year-1, current_year)
+
+return
+CALCULATE([Ordered],
+    YEAR('public order_details'[order_date]) = previous_year,
+    MONTH('public order_details'[order_date]) = previous_month)
+
+16. PM Rev = 
+var current_month =MONTH(MAX('public order_details'[order_date]))
+var previous_month = IF(current_month = 1, 12, current_month-1)
+var current_year = YEAR(MAX('public order_details'[order_date]))
+var previous_year = IF(current_month=1, current_year-1, current_year)
+
+return
+CALCULATE([Revenue],
+    YEAR('public order_details'[order_date]) = previous_year,
+    MONTH('public order_details'[order_date]) = previous_month)
+
+17. CM Order = 
+    CALCULATE([Orders],
+        YEAR('public order_details'[order_date]) = YEAR(MAX('public order_details'[order_date])),
+        MONTH('public order_details'[order_date]) = MONTH(MAX('public order_details'[order_date])))
+
+18. CM Ordered = 
+    CALCULATE([Ordered],
+        YEAR('public order_details'[order_date]) = YEAR(MAX('public order_details'[order_date])),
+        MONTH('public order_details'[order_date]) = MONTH(MAX('public order_details'[order_date])))
+
+19. CM Rev = 
+    CALCULATE([Revenue],
+        YEAR('public order_details'[order_date]) = YEAR(MAX('public order_details'[order_date])),
+        MONTH('public order_details'[order_date]) = MONTH(MAX('public order_details'[order_date])))
+
+
+
+CALCULATED TABLE
+1. CalenderDim = ADDCOLUMNS(CALENDAR("01/01/2023",TODAY()),
+"Year", YEAR([Date]),
+"MonthNo", MONTH([Date]),
+"MonthName", FORMAT([Date],"mmm"),
+"DayName", FORMAT([Date],"ddd"),
+"DayNameNo", WEEKDAY([Date]))
+
+2. inventory level = GROUPBY('public order_details', 'public items'[item_id], 'public items'[item], 'public items'[category],
+'public items'[price_in_€], 'public items'[inventory], "quantity_ordered", SUMX(CURRENTGROUP(),'public order_details'[quantity]))
+
+
+
+
+CALCULATED COLUMNS
+1. Hour = HOUR('public order_details'[order_time])
+
+2. period_of_day = 
+SWITCH(TRUE(),
+'public order_details'[Hour] >= 17, "Evening",
+'public order_details'[Hour] >=12, "Afternoon",
+"Morning")
+
+3. Revenue = [public items_price_in_€]*[quantity_ordered]
+
+4. availability_status = 
+SWITCH(TRUE(),
+'inventory level'[public items_inventory] = 0, "Out of Stock",
+'inventory level'[public items_inventory] < 0.3*('inventory level'[quantity_ordered]), "Very Low Stock",
+'inventory level'[public items_inventory] < 0.5*('inventory level'[quantity_ordered]), "Low Stock",
+'inventory level'[public items_inventory] >= 3*('inventory level'[quantity_ordered]), "Overstock",
+'inventory level'[public items_inventory] >= 0.5*('inventory level'[quantity_ordered]), "In Stock"
+)
