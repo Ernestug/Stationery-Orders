@@ -72,7 +72,7 @@ Because the data is large and expected to grow, I made a database for the store 
 - **PRIMARY KEY:** The PRIMARY KEY constraint is applied to the order_details_id and item_id columns in the order_details and items tables respectively. They serve as the primary keys for their respective tables. This constraint ensures that each value in these columns are unique and not null, uniquely identifies each row in their tables.
 - **NOT NULL:** This constraint ensures that every row in the specified column must have a valid value, and it cannot contain null values. This constraint helps maintain data integrity by requiring that this column always contains meaningful data.
 
-After creating the database, and the required tables, the next thing I did was to insert values into the tables. Remember I said I modified the data to fit the e-stationery store context. SQL allows insertion of Comma Separated Values (CSV). What I did to save time, was copy and paste the values into the INSERT syntax (Check repository for the script).
+After creating the database, and the required tables, the next thing I did was to insert values into the tables. Remember I said I modified the data to fit the e-stationery store context. SQL allows insertion of Comma Separated Values (CSV). What I did to save time, was copy and paste the values into the INSERT syntax [Check repository for the script](https://github.com/Ernestug/Staionery-Orders/blob/main/data(csv%20and%20script)/stationery_orders_data.sql).
 
 ### Entity Relationship Diagram (ERD)
 A database needs an Entity-Relationship Diagram (ERD) to be fully understood. This diagram displays how data is arranged and connected in the database, helping to see the links between tables and grasp the database's layout. The ERD is important because it gives a straightforward and clear picture of how the database is structured. The below ERD was created using PostgreSQL ERD tool.
@@ -130,13 +130,17 @@ To help with my analysis, I created additional columns and tables, using both DA
 **2. Tables:**
 - **Calendar Dim:** A calendar table was created give the date an extensive hierarchy.
 - **Inventory Level:** Using the GROUPBY DAX function in Power BI, I was able to create another table to show items and their inventory levels. This helped in showing items that are low in stock and need a restock.
-- **Order Combination:** The main purpose of creating this table was to see how different orders combine items ordered (see market basket analysis). This table involved a lot of steps in the Power Query Editor (See file for the M Query Code). Please note that the Power Query Editor automatically writes/generates these codes based on the steps applied in the editor.
+- **Order Combination:** The main purpose of creating this table was to see how different orders combine items ordered [see market basket analysis](https://www.techtarget.com/searchcustomerexperience/definition/market-basket-analysis#:~:text=Market%20basket%20analysis%20is%20a%20data%20mining%20technique%20used%20by%20retailers%20to%20increase%20sales%20by%20better%20understanding%20customer%20purchasing%20patterns.%20It%20involves%20analyzing%20large%20data%20sets%2C%20such%20as%20purchase%20history%2C%20to%20reveal%20product%20groupings%2C%20as%20well%20as%20products%20that%20are%20likely%20to%20be%20purchased%20together.). This table involved a lot of steps in the Power Query Editor [See file for the M Query Code](https://github.com/Ernestug/Staionery-Orders/blob/main/order%20combination%20table%20(Power%20Query%20Editor%20backend).txt). Please note that the Power Query Editor automatically writes/generates these codes based on the steps applied in the editor.
 
 ### Data Model
 The data model below was created in Power BI, to connect related tables.
 
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Power%20BI%20Data%20Model.PNG)
+
 ### DAX Measures
 The Model view in Power BI, also displays the measures created. To keep my DAX measures organized, I created 4 tables (Summary, Previous Month, Current Month, and Variance), then grouped the measures in their respective tables.
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/DAX.PNG)
 
 ### Key Insights from Visualization
 (Dictionary: PM – Previous Month, CM – Current Month)
@@ -144,11 +148,27 @@ Interact with report here.
 
 - The card visuals helped in giving a general summary of the store’s activities, as shown below.
 
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Cards%20(KPIs).PNG)
+
 It was observed that more than 5,000 orders were placed, totaling over 40,000 items ordered, resulting in a revenue of more than 150,000 Euros (€).
+
 - Even though March has more days than February, and even though there were a lot of orders in March, February made more money. The store got more orders in the afternoon and evening compared to the morning.
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Revenue%20by%20Month%2C%20Day%2C%20and%20Period.PNG)
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Comapring%20Current%20Month's%20revenue%20to%20Previous%20month's.PNG)
+
 - It was observed that when more items were ordered, the total amount spent on the order increased, as demonstrated below.
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/top%205%20orders%20by%20total%20spending.PNG)
+
 - The shop might lose money and customers if restocking doesn't happen soon. Some of the top 5 selling items will run out of stock soon.
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/best%205%20selling%20items%20by%20revenue.PNG)
+
 - It was observed that items in the Organization and Writing sections are in high demand, and many of them are running low on stock and may soon be unavailable.
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/orders%20by%20category.PNG)
 
 ### Conclusion
 It's important for the store to anticipate and address customer demand effectively to ensure profitability and customer satisfaction. This involves taking proactive measures such as ensuring timely restocking of inventory to avoid stockouts and meet customer needs promptly. Additionally, prioritizing popular items in categories where demand is high allows The store to allocate resources efficiently and capitalize on market trends. By staying ahead of customer demand and strategically managing inventory, the store can maintain profitability and enhance the overall customer experience.
