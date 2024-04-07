@@ -6,7 +6,7 @@ Ernest's Paper Co. is a German e-stationery store meeting the ongoing demand for
 
 The project aims to analyze stationery sales data to uncover trends, customer behavior, and inventory management insights. By leveraging data analysis, the company seeks to improve understanding of customer preferences, enhance inventory management, and optimize sales strategies for better customer satisfaction.
 
-[Click to interact with Power BI report](https://app.powerbi.com/viewr=eyJrIjoiOWI0YTgxODktYjAwYS00MTM5LTljZGQtNDdjOWEyMGM1M2Y0IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
+[Click to interact with Power BI report](https://app.powerbi.com/view?r=eyJrIjoiOWI0YTgxODktYjAwYS00MTM5LTljZGQtNDdjOWEyMGM1M2Y0IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 
 ## Data Overview
 The original data, which featured restaurant orders, was transformed to suit the stationery sales context. This involved replacing food items with stationery items, adjusting prices, and introducing inventory management metrics. It's important to note that while the data is fictitious, it mirrors real-world scenarios commonly encountered in e-commerce settings.
