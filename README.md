@@ -175,3 +175,15 @@ It's important for the store to anticipate and address customer demand effective
 - Implement a loyalty program to reward returning customers, especially those who frequently order in large quantities. Offer discounts, special deals, or exclusive perks to encourage repeat purchases and enhance customer loyalty.
 - Prioritize restocking items with low and very low stock levels to ensure availability for customers. Monitor inventory levels closely and adjust ordering patterns to prevent overstocking while ensuring popular items remain in stock.
 - Invest in data collection and analysis tools to gather more information about customer demographics and purchasing behaviors.
+
+### Report as Image
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Summary.PNG)
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Year-to-Date.PNG)
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Items.PNG)
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Orders.PNG)
+
+![](https://github.com/Ernestug/Staionery-Orders/blob/main/images/Suggestions.PNG)
